@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+@layer base {
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #cfcacbc7;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+    }
+}
+
+@layer components {
+    .component-height-header {
+        @apply h-[62px] tablet:h-[68px];
+    }
+
+    .component-text-header {
+        @apply text-[1.4rem] font-semibold break-words;
+    }
+
+    .component-text-title {
+        @apply text-[1.2rem] font-semibold break-words;
+    }
+
+    .component-text-desc {
+        @apply text-[1.05rem] text-desc whitespace-pre-line break-words;
+    }
+
+    .component-box {
+        @apply bg-white rounded-xl p-5 h-fit;
+    }
+
+    .component-avatar-button {
+        @apply opacity-70 hover:opacity-100 cursor-pointer;
+    }
+
+    .component-control-wrapper {
+        @apply fixed bottom-4 right-2 tablet:right-4 laptop:right-6 z-40 flex space-x-2;
+    }
+
+    .component-fit-main-section {
+        @apply -mx-1 tablet:-mx-4 laptop:-mx-6 -mt-2 tablet:-mt-4 -mb-1;
+    }
+}
+
+@layer utilities {
+    .util-flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .util-flex-col-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .util-max-2-text-lines {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* number of lines to show */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}

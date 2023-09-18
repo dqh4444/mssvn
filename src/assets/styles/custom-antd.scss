@@ -1,0 +1,23 @@
+$radius_base: 16px;
+
+.input-search {
+    border-radius: $radius_base !important;
+    -webkit-border-radius: $radius_base !important;
+    -moz-border-radius: $radius_base !important;
+    -ms-border-radius: $radius_base !important;
+    -o-border-radius: $radius_base !important;
+}
+
+.ant-menu-root {
+    border: none !important;
+}
+
+.ant-menu-item {
+    &:first-child {
+        margin-block: 0 !important;
+    }
+}
+
+.ant-table-pagination.ant-pagination{
+    margin: 16px 0 0 0 !important;
+}

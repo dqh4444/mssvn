@@ -1,0 +1,31 @@
+{
+	"name": "tuvu.vn",
+	"short_name": "tuvu.vn",
+	"description": "TUVU - Trải nghiệm học tập, làm việc liền mạch",
+	"icons": [
+		{
+			"src": "/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "monochrome"
+		},
+		{
+			"src": "/apple-touch-icon.png",
+			"sizes": "180x180",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/android-chrome-192x192.png",
+			"sizes": "225x225",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	],
+	"theme_color": "#171717",
+	"background_color": "#e8ebf2",
+	"display": "standalone",
+	"scope": "/",
+	"start_url": "/",
+	"orientation": "portrait"
+}

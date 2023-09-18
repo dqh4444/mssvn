@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  tuvu_web_app:
+    container_name: tuvu_web_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      VITE_API_URL: ${VITE_API_URL}
+    env_file:
+      - .env
+    ports:
+      - "3000:80"
+    networks:
+      - tuvu_backend
+
+networks:
+  tuvu_backend:
+    name: tuvu_backend
+    external: true
