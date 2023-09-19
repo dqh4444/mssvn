@@ -23,8 +23,7 @@ export default function ProtectedRoute({
     const location = useLocation()
 
     if (
-        isAuthenticated &&
-        (redirectPath === location.pathname || checkMatchingFormat(redirectPath, location.pathname))
+        isAuthenticated
     ) {
         return outlet
     }
@@ -32,11 +31,7 @@ export default function ProtectedRoute({
     return (
         <Navigate
             to={{
-                pathname: isAuthenticated ? redirectPath : `${authenticationPath}`,
-                search:
-                    location.pathname === PAGE_ROUTE_DASHBOARD
-                        ? ""
-                        : `?redirect=${location.pathname}`
+                pathname: redirectPath
             }}
         />
     )

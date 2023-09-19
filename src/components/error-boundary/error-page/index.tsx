@@ -10,7 +10,7 @@ export default function ErrorPage() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!localStorage.getItem("tuvu_storage_token")) {
+        if (!localStorage.getItem("mssvn_storage_token")) {
             navigate(PAGE_ROUTE_LOGIN)
         }
     }, [])
@@ -23,7 +23,7 @@ export default function ErrorPage() {
 
             <p className="component-text-desc w-[90%] tablet:w-[480px] mt-2">
                 <BrandTitle></BrandTitle> xin lỗi nếu làm trải nghiệm của bạn giảm đi! Với vấn đề
-                này , TUVU sẽ sớm sửa lỗi. Bạn nên tải lại trang để thử lại tính năng
+                này , mssvn sẽ sớm sửa lỗi. Bạn nên tải lại trang để thử lại tính năng
             </p>
 
             <Button

@@ -18,7 +18,6 @@ import { BsBookmarkStarFill } from "react-icons/bs"
 import { RootState } from "@/store"
 import { FullscreenExitOutlined, FullscreenOutlined } from "@ant-design/icons"
 import useEventListener from "@/hooks/useEventListener"
-import ConfigFirstTimeDrawer from "./config-first-time-drawer"
 import ConnectNetwork from "./connect-network"
 import { generatorCommonHandle } from "@/utils/generator-common-handle"
 import { LIST_LANGUAGES } from "@/configs/list-languages"
@@ -46,9 +45,9 @@ export default function Layout({ children }: any) {
         }
     })
 
-    useEffect(() => {
-        verifyUser()
-    }, [])
+    // useEffect(() => {
+    //     verifyUser()
+    // }, [])
 
     useEffect(() => {
         getGlobalSideNote()
@@ -110,83 +109,17 @@ export default function Layout({ children }: any) {
     }
 
     return (
-        <div className="flex h-screen">
-            <ConfigFirstTimeDrawer
-                open={configFirstTimeDrawer}
-                onClose={() => setConfigFirstTimeDrawer(false)}
-            ></ConfigFirstTimeDrawer>
-            <Navbar></Navbar>
-
+        <>
             <ConnectNetwork></ConnectNetwork>
 
-            <main className="h-full flex-1 flex flex-col">
-                <Header></Header>
+            <Header></Header>
 
-                <article id="id_main_section" className="bg-bg relative h-full overflow-auto">
-                    <div
-                        className={`absolute bottom-4 z-40 left-2 tablet:left-4 laptop:left-6 flex space-x-2`}
-                    >
-                        {globalSideNote && (
-                            <Tooltip title="Ghi chú toàn trang">
-                                <Avatar
-                                    className={`component-avatar-button ${
-                                        isSideNoteDisplaying
-                                            ? "opacity-100 shadow-primary bg-black"
-                                            : ""
-                                    }`}
-                                    style={{
-                                        backgroundColor: globalSideNote.color_hex || "#ffffff"
-                                    }}
-                                    onClick={() => setIsSideNoteDisplaying((prev) => !prev)}
-                                    size={46}
-                                    icon={<BsBookmarkStarFill />}
-                                />
-                            </Tooltip>
-                        )}
-
-                        <Tooltip title={`${hasFullscreen ? `Thoát` : `Toàn màn hình`} (F)`}>
-                            <Avatar
-                                className={`component-avatar-button`}
-                                onClick={() =>
-                                    hasFullscreen
-                                        ? dispatch(setExitFullScreen())
-                                        : dispatch(setFullScreen())
-                                }
-                                size={46}
-                                icon={
-                                    hasFullscreen ? (
-                                        <FullscreenExitOutlined />
-                                    ) : (
-                                        <FullscreenOutlined />
-                                    )
-                                }
-                            />
-                        </Tooltip>
-                    </div>
-
-                    {isSideNoteDisplaying && globalSideNote && (
-                        <div className="absolute shadow-primary w-screen tablet:w-[400px] bottom-[72px] z-30 left-0 tablet:left-4 laptop:left-6">
-                            <div
-                                className="group max-h-[320px] tablet:max-h-[360px] overflow-auto"
-                                style={{ backgroundColor: globalSideNote.color_hex || "#ffffff" }}
-                            >
-                                <div className="p-3">
-                                    <p className="font-semibold mb-4">{globalSideNote.title}</p>
-                                    <div>
-                                        <p className="whitespace-pre-line text-[0.9rem]">
-                                            {globalSideNote.content}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    <div className="h-full overflow-auto pb-[72px] px-1 tablet:px-4 laptop:px-6 pt-2 tablet:pt-4">
-                        {children}
-                    </div>
-                </article>
-            </main>
-        </div>
+            <article
+                id="id_main_section"
+                className="bg-bg relative component-height-main overflow-auto"
+            >
+                <main>{children}</main>
+            </article>
+        </>
     )
 }

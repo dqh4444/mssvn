@@ -30,8 +30,8 @@ export interface AppState {
 }
 
 const initialState: AppState = {
-    collapsed: +localStorage.getItem("tuvu_storage_collapsed") === 1,
-    isLoggedIn: !!localStorage.getItem("tuvu_storage_token"),
+    collapsed: +localStorage.getItem("mssvn_storage_collapsed") === 1,
+    isLoggedIn: true,
     hasFullscreen: false,
     redirectPath: "",
     globalSideNote: null,
@@ -44,17 +44,17 @@ export const appSlice = createSlice({
     reducers: {
         toggleCollapsed: (state) => {
             state.collapsed = !state.collapsed
-            localStorage.setItem("tuvu_storage_collapsed", state.collapsed ? "1" : "0")
+            localStorage.setItem("mssvn_storage_collapsed", state.collapsed ? "1" : "0")
         },
         setCollapsed: (state, action: PayloadAction<boolean>) => {
             state.collapsed = action.payload
-            localStorage.setItem("tuvu_storage_collapsed", state.collapsed ? "1" : "0")
+            localStorage.setItem("mssvn_storage_collapsed", state.collapsed ? "1" : "0")
         },
         setIsLoggedIn: (state, action: PayloadAction<string>) => {
             state.isLoggedIn = true
 
             if (action.payload) {
-                localStorage.setItem("tuvu_storage_token", action.payload)
+                localStorage.setItem("mssvn_storage_token", action.payload)
             }
         },
         setRedirectPath: (state, action: PayloadAction<string>) => {
@@ -63,7 +63,7 @@ export const appSlice = createSlice({
         setIsLoggedOut: (state) => {
             state.isLoggedIn = false
 
-            localStorage.removeItem("tuvu_storage_token")
+            localStorage.removeItem("mssvn_storage_token")
         },
         setFullScreen: (state) => {
             const elem = document.getElementById("id_main_section")

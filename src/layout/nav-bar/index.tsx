@@ -1,7 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
 import MenuApp from "./menu"
-import { ReactComponent as LogoBrandSvg } from "@/assets/svgs/logo_brand.svg"
-import { ReactComponent as CircleLogoBrandSvg } from "@/assets/svgs/circle_logo_brand.svg"
 import { RootState } from "@/store"
 import { useDispatch, useSelector } from "react-redux"
 import useWindowResize from "@/hooks/useWindowSize"
@@ -44,14 +42,6 @@ export default function Navbar() {
                     >
                         <MenuFoldOutlined />
                     </Button>
-
-                    <Link to={"/"}>
-                        {windowSize[0] >= 768 && collapsed ? (
-                            <CircleLogoBrandSvg></CircleLogoBrandSvg>
-                        ) : (
-                            <LogoBrandSvg></LogoBrandSvg>
-                        )}
-                    </Link>
                 </div>
 
                 <MenuApp collapsed={windowSize[0] < 768 ? false : collapsed}></MenuApp>

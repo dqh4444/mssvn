@@ -10,7 +10,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem("tuvu_storage_token")
+        const token = localStorage.getItem("mssvn_storage_token")
         if (token) {
             config.headers["authorization"] = token
         }
@@ -41,7 +41,7 @@ instance.interceptors.response.use(
                 if (window.location.pathname !== "/") {
                     query = `?redirect=${window.location.href}`
                 }
-                localStorage.removeItem("tuvu_storage_token")
+                localStorage.removeItem("mssvn_storage_token")
                 window.location.replace(`${PAGE_ROUTE_LOGIN}${query}`)
             }, 888)
         } else if (statusCode === 404) {

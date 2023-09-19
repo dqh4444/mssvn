@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import LayoutAuth from "../_layout"
-import { ReactComponent as BigLogoBrandSvg } from "@/assets/svgs/big_logo_brand.svg"
 import { Button, Form, Input, message } from "antd"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import { PAGE_ROUTE_LOGIN, PAGE_ROUTE_REGISTER } from "@/configs/page-route"
@@ -90,12 +89,10 @@ export default function ChangePassword() {
 
     return (
         <LayoutAuth>
-            <BigLogoBrandSvg></BigLogoBrandSvg>
-
             <h1 className="mt-4 component-text-header">Đổi mật khẩu</h1>
 
             <p className="text-left w-3/4 laptop:w-1/2">
-                <b>TUVU</b> đã xác minh và cho phép bạn có thể đổi mật khẩu mới cho email{" "}
+                <b>mssvn</b> đã xác minh và cho phép bạn có thể đổi mật khẩu mới cho email{" "}
                 <b>{searchParams.get("email")}</b>. Xin hãy tạo mật khẩu mới an toàn , dễ nhớ.
                 <br></br>
                 <i className="text-[0.9rem]">

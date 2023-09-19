@@ -13,7 +13,6 @@ import ProtectedRoute from "./routes/protected-route"
 import { useSelector } from "react-redux"
 import { RootState } from "./store"
 import React from "react"
-import { ReactComponent as BigLogoBrandSvg } from "@/assets/svgs/big_logo_brand.svg"
 import { Helmet } from "react-helmet-async"
 import { IMetadata } from "./routes/types"
 import { MAIN_DOMAIN, SLOGAN_BRAND } from "./configs"
@@ -26,13 +25,13 @@ const Metadata = ({ metadata, path }: { metadata?: IMetadata; path: string }) =>
     if (!metadata) {
         return (
             <Helmet>
-                <title>TUVU - Trải nghiệm học tập liền mạch</title>
+                <title>mssvn</title>
                 <meta name="description" content={SLOGAN_BRAND}></meta>
             </Helmet>
         )
     }
 
-    const title = `${metadata.title} - TUVU`
+    const title = `${metadata.title} - mssvn`
 
     const url = `${MAIN_DOMAIN}${path}`
 
@@ -141,9 +140,9 @@ export default function App() {
     const renderPublicRoutes = () => {
         return list_public_routers.map((route_item, index) => (
             <Route
-                element={
-                    isLoggedIn ? <Navigate to={redirectPath || PAGE_ROUTE_DASHBOARD} /> : <Outlet />
-                }
+                // element={
+                    // isLoggedIn ? <Navigate to={redirectPath || PAGE_ROUTE_DASHBOARD} /> : <Outlet />
+                // }
                 key={index}
             >
                 <Route
@@ -172,7 +171,6 @@ export default function App() {
         <Suspense
             fallback={
                 <div className="h-screen w-screen util-flex-col-center space-y-4">
-                    <BigLogoBrandSvg></BigLogoBrandSvg>
                     <Spin></Spin>
                 </div>
             }

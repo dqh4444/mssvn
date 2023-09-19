@@ -39,8 +39,16 @@
 }
 
 @layer components {
+    .component-main-section {
+        @apply max-w-[1200px] mx-auto px-4 laptop:px-2;
+    }
+
     .component-height-header {
-        @apply h-[62px] tablet:h-[68px];
+        @apply h-[56px] tablet:h-[60px];
+    }
+
+    .component-height-main {
+        @apply h-[calc(100vh-56px)] tablet:h-[calc(100vh-60px)];
     }
 
     .component-text-header {
@@ -56,7 +64,7 @@
     }
 
     .component-box {
-        @apply bg-white rounded-xl p-5 h-fit;
+        @apply bg-white rounded-xl p-4 h-fit;
     }
 
     .component-avatar-button {

@@ -50,6 +50,7 @@ const list_protected_routes_hidden_in_menu: IRouteBase[] = [
 ]
 
 const Dashboard = React.lazy(() => import("pages/dashboard"))
+const Mhcp = React.lazy(() => import("pages/mhcp"))
 
 
 const list_protected_routes: IRouteBase[] = [
@@ -67,7 +68,20 @@ const list_protected_routes: IRouteBase[] = [
             show: true
         }
     },
- 
+    {
+        component: <Mhcp></Mhcp>,
+        path: '/mhcp',
+        icon: <HomeOutlined />,
+        has_layout: true,
+        has_auth: false,
+        metadata: {
+            title: "Trang chủ",
+            description: SLOGAN_BRAND
+        },
+        menu: {
+            show: true
+        }
+    },
 ]
 
 const Login = React.lazy(() => import("@/pages/_system/auth/login"))

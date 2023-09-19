@@ -1,7 +1,7 @@
 {
-	"name": "tuvu.vn",
-	"short_name": "tuvu.vn",
-	"description": "TUVU - Trải nghiệm học tập, làm việc liền mạch",
+	"name": "mssvn",
+	"short_name": "mssvn",
+	"description": "mssvn",
 	"icons": [
 		{
 			"src": "/android-chrome-192x192.png",

@@ -8,9 +8,9 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
     registerType: "prompt",
     includeAssets: ["favicon.ico", "apple-touch-icon.png"],
     manifest: {
-        name: "tuvu.vn",
-        short_name: "tuvu.vn",
-        description: "TUVU - Trải nghiệm học tập, làm việc liền mạch",
+        name: "mssvn",
+        short_name: "mssvn",
+        description: "mssvn",
         icons: [
             {
                 src: "/android-chrome-192x192.png",

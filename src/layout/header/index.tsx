@@ -12,21 +12,20 @@ import {
     PlusOutlined,
     ReadOutlined,
     SearchOutlined,
+    SettingOutlined,
     UnderlineOutlined,
     UserOutlined
 } from "@ant-design/icons"
 import { Dropdown, Input, Avatar, Badge, Divider, Space, Button, message } from "antd"
 import { useToken } from "antd/es/theme/internal"
 import React, { useState } from "react"
-import { HiOutlineBell } from "react-icons/hi"
+import { HiOutlineBell, HiOutlineChatAlt2 } from "react-icons/hi"
 import { MdLogout, MdPassword } from "react-icons/md"
 import { useNavigate } from "react-router-dom"
 import { RiUser3Line, RiSettings4Line } from "react-icons/ri"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/store"
 import { setCollapsed, setIsLoggedOut } from "@/store/slices/app"
-import { ReactComponent as LogoBrandSvg } from "@/assets/svgs/logo_brand.svg"
-import AddSideNoteModal from "@/pages/utilities/side-note/add-item-modal"
 import { IResourceSideNote } from "@/types/resources/side-note"
 import ChangePasswordModal from "./change-password-modal"
 
@@ -56,26 +55,9 @@ export default function Header() {
 
     const list_add_new_dropdown = [
         {
-            icon: <UnderlineOutlined />,
-            title: "Tạo từ vựng",
-            handle: () => {
-                navigate(PAGE_ROUTE_CREATE_VOCABULARY)
-            }
-        },
-        {
-            icon: <FileTextOutlined size={17}></FileTextOutlined>,
-            title: "Tạo học phần",
-            handle: () => navigate(PAGE_ROUTE_CREATE_VOCABULARY_LESSON)
-        },
-        {
             icon: <BlockOutlined size={17}></BlockOutlined>,
             title: "Tạo ghi chú",
             handle: () => setIsAddSideNoteModalDisplaying(true)
-        },
-        {
-            icon: <ReadOutlined size={17}></ReadOutlined>,
-            title: "Tạo bài kiểm tra",
-            handle: () => navigate(PAGE_ROUTE_CREATE_VOCABULARY_LESSON)
         }
     ]
 
@@ -110,23 +92,14 @@ export default function Header() {
 
     return (
         <>
-            <AddSideNoteModal
-                open={isAddSideNoteModalDisplaying}
-                onCancel={() => setIsAddSideNoteModalDisplaying(false)}
-            ></AddSideNoteModal>
-
             <ChangePasswordModal
                 open={isChangePasswordDisplaying}
                 onCancel={() => setIsChangePasswordDisplaying(false)}
             ></ChangePasswordModal>
 
             <header className="component-height-header shrink-0 border-b-[1px] border-border bg-white">
-                <div className="px-2 tablet:px-4 laptop:px-6 flex h-full items-center space-x-2 tablet:space-x-4">
-                    <Input
-                        placeholder="Tìm kiếm"
-                        className="w-[280px] hidden tablet:inline-flex input-search"
-                        prefix={<SearchOutlined />}
-                    />
+                <div className="component-main-section flex h-full items-center space-x-2 tablet:space-x-4">
+                    <p className="component-text-header">MSSVN</p>
 
                     <Button
                         className="tablet:hidden mr-4"
@@ -136,51 +109,22 @@ export default function Header() {
                         <MenuUnfoldOutlined />
                     </Button>
 
-                    <LogoBrandSvg className="tablet:hidden"></LogoBrandSvg>
-
                     <div className="!ml-auto"></div>
 
-                    <Dropdown
-                        open={isAddItemDropdownOpen}
-                        onOpenChange={(visible) => setIsAddItemDropdownOpen(visible)}
-                        trigger={["click"]}
-                        className="cursor-pointer"
-                        dropdownRender={() => (
-                            <div className="overflow-hidden" style={contentStyle}>
-                                {list_add_new_dropdown.map((dropdown, index) => (
-                                    <React.Fragment key={index}>
-                                        <div
-                                            className="py-3 px-5 flex items-center space-x-2 cursor-pointer hover:bg-bg"
-                                            onClick={() => {
-                                                setIsAddItemDropdownOpen(false)
-                                                dropdown.handle()
-                                            }}
-                                        >
-                                            {dropdown.icon && dropdown.icon}
-                                            <p>{dropdown.title}</p>
-                                        </div>
-                                    </React.Fragment>
-                                ))}
-                            </div>
-                        )}
-                        placement="bottomRight"
-                    >
-                        <Avatar
-                            style={{ backgroundColor: "var(--color-success)" }}
-                            size={38}
-                            icon={<PlusOutlined />}
-                        />
-                    </Dropdown>
+                    <div className="flex space-x-2 items-center">
+                        <Avatar size={32} icon={<UserOutlined />} />
+                        <p>Manh</p>
+                    </div>
+
+                    <Avatar size={32}>
+                        <HiOutlineChatAlt2 size="26" />
+                    </Avatar>
 
                     <Badge count={1}>
-                        <Avatar size={36}>
-                            <HiOutlineBell size="32" />
+                        <Avatar size={32}>
+                            <HiOutlineBell size="26" />
                         </Avatar>
                     </Badge>
-
-                    {/* <HiOutlineSun size="26"></HiOutlineSun> */}
-
-                    {/* <HiOutlineMoon size="26"></HiOutlineMoon> */}
 
                     <Dropdown
                         open={isUserDropdownOpen}
@@ -190,7 +134,7 @@ export default function Header() {
                             <div className="overflow-hidden" style={contentStyle}>
                                 {user_info && (
                                     <div className="py-3 px-5 flex items-center space-x-2">
-                                        <Avatar size={36} icon={<UserOutlined />} />
+                                        <Avatar size={32} icon={<UserOutlined />} />
 
                                         <div>
                                             <p className="font-semibold">
@@ -224,7 +168,7 @@ export default function Header() {
                         )}
                         placement="bottomRight"
                     >
-                        <Avatar size={38} icon={<UserOutlined />} />
+                        <Avatar size={32} icon={<SettingOutlined />} />
                     </Dropdown>
                 </div>
             </header>

@@ -1,6 +1,5 @@
 import React from "react"
 import LayoutAuth from "../_layout"
-import { ReactComponent as BigLogoBrandSvg } from "@/assets/svgs/big_logo_brand.svg"
 import { Button, Form, Input, message } from "antd"
 import { Link } from "react-router-dom"
 import { PAGE_ROUTE_LOGIN, PAGE_ROUTE_REGISTER } from "@/configs/page-route"
@@ -23,7 +22,7 @@ export default function ForgetPassword() {
             null,
             async () => {
                 message.success(
-                    "Gửi yêu cầu thành công. Vui lòng chờ giây lát TUVU xác minh và gửi mail phản hồi cho bạn"
+                    "Gửi yêu cầu thành công. Vui lòng chờ giây lát mssvn xác minh và gửi mail phản hồi cho bạn"
                 )
             }
         )
@@ -31,13 +30,12 @@ export default function ForgetPassword() {
 
     return (
         <LayoutAuth>
-            <BigLogoBrandSvg></BigLogoBrandSvg>
 
             <h1 className="mt-4 component-text-header">Đăng nhập</h1>
             <h1 className="mt-4 ">Quên mật khẩu</h1>
 
             <p className="text-left w-3/4 laptop:w-1/2">
-                Vui lòng nhập địa chỉ email đăng nhập dưới đây để <b>TUVU</b> gửi cho bạn liên kết
+                Vui lòng nhập địa chỉ email đăng nhập dưới đây để <b>mssvn</b> gửi cho bạn liên kết
                 đặt lại mật khẩu
             </p>
 

@@ -2,7 +2,7 @@ import { Rule } from "antd/es/form"
 
 export const SLOGAN_BRAND = ``
 
-export const MAIN_DOMAIN = `https://tuvu.vn`
+export const MAIN_DOMAIN = `https://mssvn.vn`
 
 export const LIST_COLOR_HEX_SIDE_NOTES = ["#e9e96f", "#efc0c0", "#8ddb8d", "#f8cf85", "#a8b7dd"]
 

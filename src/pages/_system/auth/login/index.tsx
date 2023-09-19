@@ -1,4 +1,3 @@
-import { ReactComponent as BigLogoBrandSvg } from "@/assets/svgs/big_logo_brand.svg"
 import { API_PATH_LOGIN } from "@/configs/api-path"
 import { PAGE_ROUTE_FORGET_PASSWORD, PAGE_ROUTE_REGISTER } from "@/configs/page-route"
 import { postData } from "@/helpers/axios"
@@ -34,7 +33,7 @@ export default function Login() {
             async (payload: ILoginResponse) => {
                 dispatch(setIsLoggedIn(payload.access_token))
 
-                message.success("Chào mừng bạn đến với TUVU !")
+                message.success("Chào mừng bạn đến với mssvn !")
 
                 if (searchParams.get("redirect")) {
                     dispatch(setRedirectPath(searchParams.get("redirect")))
@@ -47,7 +46,6 @@ export default function Login() {
 
     return (
         <LayoutAuth>
-            <BigLogoBrandSvg></BigLogoBrandSvg>
 
             <h1 className="mt-4 component-text-header">Đăng nhập</h1>
 
